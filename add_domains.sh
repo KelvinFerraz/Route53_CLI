@@ -32,7 +32,7 @@ done
 # Add CNAME to AWS ROUTE53
 cd domains_json/
 for i in * ; do
-    echo "Adicionando a empresa $i.."
+    echo "Adicionando CNAME $i.."
     echo ""
     sleep 1
     aws route53 change-resource-record-sets --hosted-zone-id ID_HOSTED --change-batch file://$i
