@@ -1,6 +1,7 @@
 #!/bin/bash
 
 mkdir domains_json
+touch domains_toadd
 
 # VARS 
 VALUE=
@@ -8,9 +9,9 @@ ID_HOSTED =
 
 
 # Create files json in directory domains_json
-for domain in $(cat domains_mktzap); do 
+for domain in $(cat domains_toadd); do 
     echo '{
-    "Comment":"CNAME para empresa '$domain'",
+    "Comment":"CNAME para '$domain'",
     "Changes":[
     {
         "Action":"CREATE",
