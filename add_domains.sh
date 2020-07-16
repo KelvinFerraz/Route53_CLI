@@ -1,17 +1,17 @@
 #!/bin/bash
 
+# Crete folder and file
 mkdir domains_json
-touch domains_toadd
+touch domains_toadd # insert domains one below the other
 
 # VARS 
 VALUE=
 ID_HOSTED = 
 
-
 # Create files json in directory domains_json
 for domain in $(cat domains_toadd); do 
     echo '{
-    "Comment":"CNAME para '$domain'",
+    "Comment":"CNAME to '$domain'",
     "Changes":[
     {
         "Action":"CREATE",
@@ -33,7 +33,7 @@ done
 # Add CNAME to AWS ROUTE53
 cd domains_json/
 for i in * ; do
-    echo "Adicionando CNAME $i.."
+    echo "Add CNAME $i.."
     echo ""
     sleep 1
     aws route53 change-resource-record-sets --hosted-zone-id ID_HOSTED --change-batch file://$i
