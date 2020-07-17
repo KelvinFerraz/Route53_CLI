@@ -6,7 +6,7 @@ touch domains_toadd # insert domains one below the other
 
 # VARS 
 VALUE=
-ID_HOSTED = 
+ID_HOSTED= 
 
 # Create files json in directory domains_json
 for domain in $(cat domains_toadd); do 
@@ -36,5 +36,5 @@ for i in * ; do
     echo "Add CNAME $i.."
     echo ""
     sleep 1
-    aws route53 change-resource-record-sets --hosted-zone-id ID_HOSTED --change-batch file://$i
+    aws route53 change-resource-record-sets --hosted-zone-id $ID_HOSTED --change-batch file://$i
 done
